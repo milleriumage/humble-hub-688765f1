@@ -12,9 +12,12 @@ nixpkgsVersion = "24.05"
 
 [nixpacks.phases.setup]
 nixPkgs = ["nodejs_20"]
+aptPkgs = []
 
 [nixpacks.phases.install]
-cmds = ["cd backend && npm install --omit=dev"]
+cmds = [
+  "npm install --prefix /app/backend --omit=dev --no-package-lock"
+]
 
 [nixpacks.phases.build]
-cmds = ["echo 'Backend setup complete'"]
+cmds = ["echo 'Backend ready'"]
