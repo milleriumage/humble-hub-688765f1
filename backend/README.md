@@ -4,14 +4,24 @@ Backend Node.js server with Express, WebSocket, and real IMVU integration using 
 
 ## 🚀 Quick Start
 
-### 1. Install Dependencies
+### 1. Build IMVU.js Packages
+
+First, build the imvu.js TypeScript packages:
 
 ```bash
-cd backend
+cd imvu.js-master
+npm install
+npm run build
+```
+
+### 2. Install Backend Dependencies
+
+```bash
+cd ../backend
 npm install
 ```
 
-### 2. Start the Server
+### 3. Start the Server
 
 ```bash
 npm start

@@ -1,6 +1,6 @@
-import { Client } from '../imvu.js-master/packages/client/src/index.js';
-import { IMQManager } from '../imvu.js-master/packages/imq/src/IMQManager.js';
-import { IMQWebSocketConnectionStrategy } from '../imvu.js-master/packages/imq/src/websocket/IMQWebSocketConnectionStrategy.js';
+import { Client } from '../imvu.js-master/packages/client/dist/cjs/index.js';
+import { IMQManager } from '../imvu.js-master/packages/imq/dist/cjs/IMQManager.js';
+import { IMQWebSocketConnectionStrategy } from '../imvu.js-master/packages/imq/dist/cjs/websocket/IMQWebSocketConnectionStrategy.js';
 
 class BotInstance {
   constructor(id, username, password) {
