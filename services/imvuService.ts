@@ -33,57 +33,17 @@ class ImvuService {
     private reconnectTimer: any = null;
 
     constructor() {
-        this.connectWebSocket();
+        // WebSocket disabled - Vercel doesn't support persistent WebSockets
+        // this.connectWebSocket();
     }
 
     private get BACKEND_URL() { return getBackendUrl(); }
     private get WS_URL() { return toWsUrl(this.BACKEND_URL); }
 
     private connectWebSocket() {
-        const wsUrl = this.WS_URL;
-        if (!wsUrl) {
-            this.log('[WebSocket] Backend URL not configured. Set VITE_BACKEND_URL or localStorage.BACKEND_URL (e.g., https://xxx.ngrok-free.app)');
-            return;
-        }
-
-        try {
-            this.ws = new WebSocket(wsUrl);
-
-            this.ws.onopen = () => {
-                this.log('[WebSocket] Connected to backend server');
-            };
-
-            this.ws.onmessage = (event) => {
-                const data = JSON.parse(event.data);
-                
-                switch (data.type) {
-                    case 'message':
-                        this.messageCallback?.(data.data);
-                        break;
-                    case 'user_joined':
-                        this.userJoinedCallback?.(data.data.roomId, data.data.user);
-                        break;
-                    case 'user_left':
-                        this.userLeftCallback?.(data.data.roomId, data.data.userId, data.data.username);
-                        break;
-                    case 'log':
-                        this.log(data.data);
-                        break;
-                }
-            };
-
-            this.ws.onerror = () => {
-                this.log('[WebSocket] Error connecting to backend');
-            };
-
-            this.ws.onclose = () => {
-                this.log('[WebSocket] Disconnected. Reconnecting in 3s...');
-                this.reconnectTimer = setTimeout(() => this.connectWebSocket(), 3000);
-            };
-        } catch (error) {
-            this.log('[WebSocket] Failed to connect. Check backend URL.');
-            console.error('WebSocket error:', error);
-        }
+        // WebSocket disabled - Vercel doesn't support persistent WebSockets
+        // Will use polling or SSE in future implementation
+        this.log('[Info] Real-time updates via WebSocket not available on Vercel deployment');
     }
 
     public onMessage(callback: MessageCallback) { this.messageCallback = callback; }

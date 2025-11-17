@@ -1,5 +1,16 @@
 # Troubleshooting: Login do IMVU
 
+## ⚠️ IMPORTANTE: Limitação do Vercel
+
+O backend Vercel **NÃO suporta WebSockets persistentes**. Isso significa:
+- ✅ Login e comandos básicos funcionam
+- ❌ Updates em tempo real via WebSocket não funcionam
+- 📝 Você verá a mensagem: "Real-time updates via WebSocket not available on Vercel deployment"
+
+Para WebSockets, você precisaria usar outro hosting (Railway, Render, etc).
+
+---
+
 ## Erro: "Login failed. Please check credentials"
 
 Este erro geralmente NÃO é um problema com suas credenciais. Siga este checklist:
