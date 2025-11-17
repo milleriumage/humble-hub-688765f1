@@ -2,36 +2,31 @@
 
 Para habilitar **todos os recursos** (login + salas + tempo real), use Railway que suporta WebSockets persistentes.
 
-## Passo 1: Preparar Repositório
+## ⚡ Deploy Automático (Recomendado)
 
-```bash
-# Certifique-se de que o código está no GitHub
-# Se ainda não está, conecte via GitHub Integration do Lovable
-```
-
-## Passo 2: Criar Conta e Projeto no Railway
+O projeto já tem `railway.toml` configurado! Basta:
 
 1. Acesse [railway.app](https://railway.app)
 2. Clique em **"Start a New Project"**
 3. Selecione **"Deploy from GitHub repo"**
 4. Autorize o Railway a acessar seu GitHub
 5. Selecione o repositório do projeto
+6. **Railway vai detectar automaticamente a configuração!**
 
-## Passo 3: Configurar o Deploy
+## 🔧 Deploy Manual (Se Necessário)
 
-Na configuração do serviço:
+Se preferir configurar manualmente:
 
 ### Settings → Build & Deploy
 
+**IMPORTANTE:** Deixe **Root Directory em branco** (o railway.toml já gerencia isso)
+
 ```bash
-# Root Directory
-backend
+# Build Command (opcional, já está no railway.toml)
+cd backend && npm install
 
-# Build Command
-npm install
-
-# Start Command  
-npm start
+# Start Command (opcional, já está no railway.toml)
+cd backend && npm start
 ```
 
 ### Settings → Variables
